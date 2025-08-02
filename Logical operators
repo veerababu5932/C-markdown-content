@@ -1,0 +1,155 @@
+## What are Logical Operators?
+Logical operators manipulate the truth values of expressions, returning 1 (true) or 0 (false). They are used to combine multiple conditions to control program flow. 
+
+### C supports three logical operators:
+
+1. **Logical AND (&&)**:  True if both operands are true.
+2. **Logical OR (||)**:   True if at least one operand is true.
+3. **Logical NOT (!)**:  Inverts the truth value of its operand.
+### 1. Logical AND (&&)
+Returns 1 (true) if both operands are non-zero (true). If either operand is 0 (false), the result is 0 (false).
+- **Syntax**: expression1 && expression2
+
+- **Truth Table**:
+  | Expression1 | Expression2 | Expression1   Expression2 |
+  |-------------|-------------|---------------------------|
+  | true (1)    | true (1)    | true (1)                  |
+  | true (1)    | false (0)   | false (0)                 |
+  | false (0)   | true (1)    | false (0)                 |
+  | false (0)   | false (0)   | false (0)                 |
+### Example
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5, b = 10;  // Both non-zero (true)
+    int result;
+
+    // Logical AND with a and b
+    result = (a != 0) && (b != 0);
+    printf("Logical AND (a != 0 && b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+    // Test with one false value
+    a = 0;  // Set a to 0 (false)
+    result = (a != 0) && (b != 0);
+    printf("Logical AND (a != 0 && b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+    // Test with both false
+    b = 0;  // Set b to 0 (false)
+    result = (a != 0) && (b != 0);
+    printf("Logical AND (a != 0 && b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+    return 0;
+}
+```
+### Output
+``` c
+Logical AND (a != 0 && b != 0) with a=5, b=10: 1
+Logical AND (a != 0 && b != 0) with a=0, b=10: 0
+Logical AND (a != 0 && b != 0) with a=0, b=0: 0
+```
+### 2. Logical OR (||)
+-  Returns 1(true) if at least one operand is non-zero (true). Returns 0(false) only if both operands are 0 (false).
+- **Syntax**: expression1 || expression2
+- **Truth Table**:
+- **Truth Table**:
+ **Truth Table**:
+  | Expression1 | Expression2 | Expression1 && Expression2 |
+  |-------------|-------------|---------------------------|
+  | true (1)    | true (1)    | true (1)                  |
+  | true (1)    | false (0)   | false (0)                 |
+  | false (0)   | true (1)    | false (0)                 |
+  | false (0)   | false (0)   | false (0)                 |
+
+### Example 
+```c
+#include<stdio.h>
+int main()
+{
+// Logical OR with a and b
+result = (a != 0) || (b != 0);
+printf("Logical OR (a != 0 || b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+// Test with both true
+b = 10;  // Set b to non-zero (true)
+result = (a != 0) || (b != 0);
+printf("Logical OR (a != 0 || b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+// Test with false and true
+a = 0;  // Set a to zero (false)
+result = (a != 0) || (b != 0);
+printf("Logical OR (a != 0 || b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+// Test with both false
+b = 0;  // Set b to zero (false)
+result = (a != 0) || (b != 0);
+printf("Logical OR (a != 0 || b != 0) with a=%d, b=%d: %d\n", a, b, result);
+
+return 0;
+}
+```
+### Output 
+``` c
+Logical OR (a != 0 || b != 0) with a=5, b=0: 1
+Logical OR (a != 0 || b != 0) with a=5, b=10: 1
+Logical OR (a != 0 || b != 0) with a=0, b=10: 1
+Logical OR (a != 0 || b != 0) with a=0, b=0: 0
+```
+### 3. Logical NOT (!)
+-  Returns 1(true) if the operand is 0(false), and 0 (false) if the operand is non-zero (true).
+- **Syntax**: !expression
+- **Truth Table**:
+  | Expression | !Expression |
+  |------------|-------------|
+  | true (1)   | false (0)   |
+  | false (0)  | true (1)    |
+### Example
+```c
+#include<stdio.h>
+int main()
+{
+// Logical NOT with a
+result = !(a != 0);
+printf("Logical NOT (!(a != 0)) with a=%d: %d\n", a, result);
+
+// Test with false value
+a = 0;  // Zero (false)
+result = !(a != 0);
+printf("Logical NOT (!(a != 0)) with a=%d: %d\n", a, result);
+
+// Direct NOT evaluation in printf
+a = 10;  // Non-zero (true)
+printf("Direct NOT evaluation (!(a != 0)) with a=%d: %d\n", a, !(a != 0));
+
+return 0;
+}
+```
+### Output 
+```c
+Logical NOT (!(a != 0)) with a=5: 0
+Logical NOT (!(a != 0)) with a=0: 1
+Direct NOT evaluation (!(a != 0)) with a=10: 0
+```
+### Questions
+<details>
+<summary>Q1.What is the output of !0 in C?</summary>
+1
+</details>
+<details>
+<summary>What is the result of 0 && 1 in C?</summary>
+0
+</details>
+<details>
+<summary>What does 1 || 0 evaluate to in C?</summary>
+1
+</details>
+
+
+
+
+
+
+
+
+
+
